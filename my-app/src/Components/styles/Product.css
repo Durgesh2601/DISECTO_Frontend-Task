@@ -1,0 +1,11 @@
+.container {
+    display: flex;
+    flex-wrap: wrap;
+    width: 95%;
+    gap: 1.2%;
+    margin: auto;
+    margin-top: 1%;
+}
+h1{
+    color: #1976d2;
+}
