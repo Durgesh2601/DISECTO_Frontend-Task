@@ -1,14 +1,13 @@
 import './App.css';
-import { Homepage } from './Components/Home';
-import { ChakraProvider } from '@chakra-ui/react'
+import { Products } from './Components/Products';
+import { SearchBar } from './Components/SearchBar';
 
 function App() {
   return (
-    <ChakraProvider>
     <div className="App">
-    <Homepage/>
+    <SearchBar/>
+    <Products/>
     </div>
-    </ChakraProvider>
   );
 }
 
