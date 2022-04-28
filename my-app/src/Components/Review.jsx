@@ -6,12 +6,14 @@ import CardContent from '@mui/material/CardContent';
 import CardMedia from '@mui/material/CardMedia';
 import Typography from '@mui/material/Typography';
 import { CardActionArea } from '@mui/material';
-import React, { useEffect } from 'react';
-
-import { removeSelectedProducts, selectedProduct } from "../Redux/action";
+import Button from '@mui/material/Button';
+import TextField from '@mui/material/TextField';
+import React, { useEffect, useState } from 'react';
+import { addReview, removeSelectedProducts, selectedProduct } from "../Redux/action";
 
 export const Review = () => {
     const {id} = useParams();
+    const [text, setText] = useState("");
     const product = useSelector((state) => state.specificProduct);
     const dispatch = useDispatch();
     useEffect(() => {
@@ -22,8 +24,10 @@ export const Review = () => {
         dispatch(removeSelectedProducts(id))
       }
     }, [id])
-    console.log(id)
-    
+
+   const handlePost = () => {
+       dispatch(addReview(text));
+   }
     const fetchProduct = (id) => {
         fetch(`https://fakestoreapi.com/products/${id}`).then(d => d.json()).then((res) => {
             dispatch(selectedProduct(res));
@@ -53,8 +57,10 @@ export const Review = () => {
                 </Card>
             </div>
             <div>
-                
-                
+            <Typography gutterBottom variant="h5" component="div">Reviews</Typography>
+
+            <TextField fullWidth label="Add Review" id="fullWidth" onChange={(e) => setText(e.target.value)} />
+            <Button variant="contained" sx={{mt:1}} onClick={handlePost}>Post</Button>
             </div></>)}
         </div>
     </>)
