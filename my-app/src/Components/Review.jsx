@@ -41,7 +41,7 @@ export const Review = () => {
         <div>...Loading</div>
       ) : (<>
             <div>
-            <Card sx={{ maxWidth: 345, mb : 4 }} key={product.id}>
+            <Card sx={{ maxWidth: 405, mb : 4 }} key={product.id}>
                 <CardActionArea>
                 <CardMedia sx={{p : 2}}
                 component="img"
@@ -50,7 +50,7 @@ export const Review = () => {
                 <CardContent>
                 <Typography gutterBottom variant="h5" component="div">{product.title}</Typography>
                 <Typography variant="h6" color="text.secondary" sx={{mb : 1}}>{product.category}</Typography>
-                <Typography noWrap variant="body2" color="text.secondary">{product.description}</Typography>
+                <Typography variant="body2" color="text.secondary">{product.description}</Typography>
                 <Typography variant="h6" color="#1976d2" component="div" sx={{mt:1}}>Price : ₹{product.price}</Typography>
                 </CardContent>
                 </CardActionArea>

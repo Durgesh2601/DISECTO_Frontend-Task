@@ -35,7 +35,7 @@ export const Products = () => {
                 height="250"
                 image={e.image} alt="green iguana"/>
                 <CardContent>
-                <Typography gutterBottom variant="h5" component="div">{e.title}</Typography>
+                <Typography noWrap gutterBottom variant="h5" component="div">{e.title}</Typography>
                 <Typography variant="h6" color="text.secondary" sx={{mb : 1}}>{e.category}</Typography>
                 <Typography noWrap variant="body2" color="text.secondary">{e.description}</Typography>
                 <Typography variant="h6" color="#1976d2" component="div" sx={{mt:1}}>Price : ₹{e.price}</Typography>
