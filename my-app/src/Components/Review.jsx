@@ -58,8 +58,10 @@ export const Review = () => {
             </div>
             <div>
             <Typography gutterBottom variant="h5" component="div">Reviews</Typography>
+            {product.reviews ? (<Typography variant="p" color="red" component="div">{product.reviews[0]}</Typography>) : (<Typography variant="p" component="div">No reviews given yet.</Typography>)}
+            
 
-            <TextField fullWidth label="Add Review" id="fullWidth" onChange={(e) => setText(e.target.value)} />
+            <TextField fullWidth label="Add Review" id="fullWidth" sx={{mt:4}} onChange={(e) => setText(e.target.value)} />
             <Button variant="contained" sx={{mt:1}} onClick={handlePost}>Post</Button>
             </div></>)}
         </div>
