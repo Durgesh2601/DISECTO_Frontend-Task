@@ -3,8 +3,11 @@ import { useDispatch, useSelector } from "react-redux";
 import { useParams } from "react-router-dom";
 import Card from '@mui/material/Card';
 import CardContent from '@mui/material/CardContent';
+import CircularProgress from '@mui/material/CircularProgress';
 import CardMedia from '@mui/material/CardMedia';
 import Typography from '@mui/material/Typography';
+import Chip from '@mui/material/Chip';
+import Avatar from '@mui/material/Avatar';
 import { CardActionArea } from '@mui/material';
 import Button from '@mui/material/Button';
 import TextField from '@mui/material/TextField';
@@ -38,7 +41,9 @@ export const Review = () => {
     return (<>
         <div className="container1">
         {Object.keys(product).length === 0 ? (
-        <div>...Loading</div>
+            <div style={{marginLeft : "15%"}}>
+                <CircularProgress  />
+            </div>
       ) : (<>
             <div>
             <Card sx={{ maxWidth: 405, mb : 4 }} key={product.id}>
@@ -58,7 +63,7 @@ export const Review = () => {
             </div>
             <div>
             <Typography gutterBottom variant="h5" component="div">Reviews</Typography>
-            {product.reviews ? (<Typography variant="p" color="red" component="div">{product.reviews[0]}</Typography>) : (<Typography variant="p" component="div">No reviews given yet.</Typography>)}
+            {product.reviews ? (<Chip avatar={<Avatar>M</Avatar>} label={product.reviews[0]} />) : (<Typography variant="p" component="div">No reviews given yet.</Typography>)}
             
 
             <TextField fullWidth label="Add Review" id="fullWidth" sx={{mt:4}} onChange={(e) => setText(e.target.value)} />
